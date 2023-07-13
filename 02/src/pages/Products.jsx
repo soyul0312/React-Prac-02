@@ -31,7 +31,7 @@ export default function Products({ items }) {
             가격순 정렬
           </button>
           {items.map((item) => (
-            <Link to={`/products/${items.id}`}>
+            <Link to={`/products/${item.id}`}>
               <div
                 style={{
                   width: "200px",
