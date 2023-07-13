@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { styled } from "styled-components";
 
 export default function Layout() {
   return (
@@ -20,15 +22,21 @@ export default function Layout() {
           color: "white",
         }}
       >
-        <div>로고</div>
+        <Link to="/">
+          <TextColor>로고</TextColor>
+        </Link>
         <div
           style={{
             display: "flex",
             gap: "12px",
           }}
         >
-          <div>로그인</div>
-          <div>회원가입</div>
+          <Link to="/login">
+            <TextColor>로그인</TextColor>
+          </Link>
+          <Link to="/signup">
+            <TextColor>회원가입</TextColor>
+          </Link>
         </div>
       </header>
       {/* 중첩된 컴포넌트들을 렌더링할 수 있도록 하는 라우터 컴포넌트 = Outlet */}
@@ -56,3 +64,7 @@ export default function Layout() {
     </div>
   );
 }
+
+const TextColor = styled.div`
+  color: white;
+`;

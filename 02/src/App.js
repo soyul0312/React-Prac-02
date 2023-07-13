@@ -19,16 +19,18 @@ function App() {
           <Route path="/products/:id" element={<Product />} />
           {/* "*"기호는 모든 경로와 일치하므로, 어떤 경로에서도 해당 라우터가 렌더링된다. */}
           {/* 주로 404 에러 페이지나 기본 경로(default path)로 사용된다. */}
-          <Route
-            path="*"
-            element={
-              <>
-                <div>없는 페이지 입니다.</div>
-                <Link to="/">홈으로</Link>
-              </>
-            }
-          />
+          <Route path="/login" element={<div>로그인 페이지입니다.</div>} />
+          <Route path="/signup" element={<div>회원가입 페이지입니다.</div>} />
         </Route>
+        <Route
+          path="*"
+          element={
+            <>
+              <div>없는 페이지 입니다.</div>
+              <Link to="/">홈으로</Link>
+            </>
+          }
+        />
       </Routes>
     </>
   );
