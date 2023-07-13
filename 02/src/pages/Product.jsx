@@ -1,9 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
-export default function Product() {
+export default function Product({ items }) {
   // useParams를 이용해 url의 id를 가져온다.
   const { id } = useParams();
+  // items의 id값 === 현재 URL id값이 일치하는 상품을 찾아낸다.
+  const product = items.find((item) => item.id === id);
+  // product 객체에서 각각의 정보들을 추출해서 변수로 할당한다 --> 구조분해할당
+  const { name, price, option, likes } = product;
+  // 선택된 옵션 화면에 렌더링하기 위해 useState 사용한다.
+  const [selectedOption, setSelectedOtion] = useState("");
   return (
     <>
       <div>
@@ -23,21 +30,32 @@ export default function Product() {
               backgroundColor: "#068FFF",
             }}
           >
-            상품{id}
+            {name}
           </div>
           <div>
-            <h3>가격: ~~~~</h3>
-            <h3>좋아요: ~~~~</h3>
+            <h3>가격: {price}</h3>
+            <h3>좋아요: {likes}</h3>
             <h3>구매옵션</h3>
             <select
               style={{
                 width: "100px",
               }}
+              onChange={(e) => {
+                setSelectedOtion(e.target.value);
+              }}
             >
-              <option>옵션1</option>
-              <option>옵션2</option>
-              <option>옵션3</option>
+              <option>선택하세용!</option>
+              {option.map((option) => {
+                return (
+                  <>
+                    <option key={option.value} value={option.name}>
+                      {option.name}
+                    </option>
+                  </>
+                );
+              })}
             </select>
+            <div>구매옵션:{selectedOption}</div>
           </div>
         </div>
       </div>

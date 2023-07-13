@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { styled } from "styled-components";
 
-export default function Main() {
+export default function Main({ items }) {
   return (
     <>
       {/* main */}
@@ -29,6 +30,7 @@ export default function Main() {
           <h2>🔥 여름 추천템 🔥</h2>
           {/* react-router-dom의 a태그 = Link */}
           <Link to="/products">더보기</Link>
+          {/* map함수를 이용해 각 카드 렌더링 */}
           <div
             style={{
               display: "flex",
@@ -36,33 +38,12 @@ export default function Main() {
               gap: "24px",
             }}
           >
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품1
-            </div>
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품2
-            </div>
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품3
-            </div>
+            {items.map((item) => (
+              <Card key={item.id}>
+                <div>{item.name}</div>
+                <div>{item.price}</div>
+              </Card>
+            ))}
           </div>
         </section>
         {/* 추가적인 데이터 */}
@@ -80,36 +61,24 @@ export default function Main() {
               gap: "24px",
             }}
           >
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#EEEEEE",
-              }}
-            >
-              상품1
-            </div>
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#EEEEEE",
-              }}
-            >
-              상품2
-            </div>
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#EEEEEE",
-              }}
-            >
-              상품3
-            </div>
+            <SaleCard>상품1</SaleCard>
+            <SaleCard>상품2</SaleCard>
+            <SaleCard>상품3</SaleCard>
           </div>
         </section>
       </main>
     </>
   );
 }
+
+const Card = styled.div`
+  width: 200px;
+  height: 240px;
+  background-color: #068fff;
+`;
+
+const SaleCard = styled.div`
+  width: 200px;
+  height: 240px;
+  background-color: white;
+`;
