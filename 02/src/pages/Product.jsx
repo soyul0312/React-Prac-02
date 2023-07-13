@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-export default function Product() {
+export default function Product({ items }) {
   // useParams를 이용해 url의 id를 가져온다.
   const { id } = useParams();
   return (
