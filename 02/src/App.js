@@ -7,12 +7,15 @@ import Layout from "./common/Layout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
+import { nanoid } from "nanoid";
+import { useState } from "react";
+// import { useState } from "react";
 
 function App() {
   // 최상단에서 상품 정보 셋팅 --> 필요한 컴포넌트에 props 전달하기
-  const items = [
+  const [items, setItems] = useState([
     {
-      id: "1",
+      id: nanoid(),
       name: "멋진 바지",
       price: 20000,
       option: [
@@ -23,7 +26,7 @@ function App() {
       likes: 100,
     },
     {
-      id: "2",
+      id: nanoid(),
       name: "멋진 셔츠",
       price: 10000,
       option: [
@@ -34,7 +37,7 @@ function App() {
       likes: 200,
     },
     {
-      id: "3",
+      id: nanoid(),
       name: "멋진 신발",
       price: 30000,
       option: [
@@ -46,7 +49,7 @@ function App() {
       ],
       likes: 300,
     },
-  ];
+  ]);
   return (
     <>
       <Routes>
