@@ -31,7 +31,7 @@ export default function Products({ items }) {
             가격순 정렬
           </button>
           {items.map((item) => (
-            <Link to={`/products/${item.id}`}>
+            <Link to={`/products/${item.id}`} key={item.id}>
               <div
                 style={{
                   width: "200px",
@@ -39,7 +39,7 @@ export default function Products({ items }) {
                   backgroundColor: "#068FFF",
                 }}
               >
-                <div key={item.id}>
+                <div>
                   <div>{item.name}</div>
                   <div>{item.price}</div>
                 </div>
