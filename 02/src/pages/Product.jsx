@@ -48,14 +48,14 @@ export default function Product({ items }) {
               {option.map((option) => {
                 return (
                   <>
-                    <option key={option.value} value={option.name}>
-                      {option.name}
+                    <option key={option} value={option}>
+                      {option}
                     </option>
                   </>
                 );
               })}
             </select>
-            <div>구매옵션:{selectedOption}</div>
+            <div>{selectedOption}</div>
           </div>
         </div>
       </div>

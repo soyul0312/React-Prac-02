@@ -15,35 +15,21 @@ function App() {
       id: "1",
       name: "멋진 바지",
       price: 20000,
-      option: [
-        { value: 1, name: "28" },
-        { value: 2, name: "30" },
-        { value: 3, name: "32" },
-      ],
+      option: ["28", "30", "32"],
       likes: 100,
     },
     {
       id: "2",
       name: "멋진 셔츠",
       price: 10000,
-      option: [
-        { value: 1, name: "small" },
-        { value: 2, name: "medium" },
-        { value: 3, name: "large" },
-      ],
+      option: ["small", "medium", "large"],
       likes: 200,
     },
     {
       id: "3",
       name: "멋진 신발",
       price: 30000,
-      option: [
-        { value: 1, name: "230" },
-        { value: 2, name: "240" },
-        { value: 3, name: "250" },
-        { value: 4, name: "260" },
-        { value: 5, name: "270" },
-      ],
+      option: ["230", "240", "250", "260", "270"],
       likes: 300,
     },
   ];
