@@ -1,8 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
-export default function Product({ items }) {
+export default function Product() {
+  const items = useSelector((state) => state.products);
+
   // useParams를 이용해 url의 id를 가져온다. 이때 id는 문자열임.
   const { id } = useParams();
   // items의 id값 === 현재 URL id값이 일치하는 상품을 찾아낸다.

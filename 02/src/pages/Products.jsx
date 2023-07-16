@@ -1,10 +1,13 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams, Link } from "react-router-dom";
+import { resetPrice, sortByPrice } from "../redux/items";
 
-export default function Products({ items }) {
+export default function Products() {
+  const items = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
   const [searchParams, setSearchParams] = useSearchParams();
-  // console.log({ searchParams: searchParams.get("sort") });
 
   return (
     <>
@@ -15,6 +18,20 @@ export default function Products({ items }) {
         }}
       >
         <h2>🔥 여름 추천템 🔥</h2>
+        <button
+          onClick={() => {
+            dispatch(sortByPrice());
+          }}
+        >
+          가격순 정렬
+        </button>
+        <button
+          onClick={() => {
+            dispatch(resetPrice());
+          }}
+        >
+          정렬 리셋
+        </button>
         <div
           style={{
             display: "flex",
@@ -22,14 +39,6 @@ export default function Products({ items }) {
             gap: "24px",
           }}
         >
-          {/* 버튼 클릭 시, URL 바뀐 것 확인 */}
-          <button
-            onClick={() => {
-              setSearchParams({ sort: "price" });
-            }}
-          >
-            가격순 정렬
-          </button>
           {items.map((item) => (
             <Link to={`/products/${item.id}`} key={item.id}>
               {console.log(item.id)}
