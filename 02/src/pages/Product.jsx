@@ -47,8 +47,8 @@ export default function Product({ items }) {
               <option value={""}>선택하세용!</option>
               {options.map((option) => {
                 return (
-                  <option key={option.key} value={option.name}>
-                    {option.name}
+                  <option key={option} value={option}>
+                    {option}
                   </option>
                 );
               })}
