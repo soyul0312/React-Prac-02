@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Products({ items }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log({ searchParams: searchParams.get("sort") });
+  // console.log({ searchParams: searchParams.get("sort") });
 
   return (
     <>
@@ -32,6 +32,7 @@ export default function Products({ items }) {
           </button>
           {items.map((item) => (
             <Link to={`/products/${item.id}`} key={item.id}>
+              {console.log(item.id)}
               <div
                 style={{
                   width: "200px",
