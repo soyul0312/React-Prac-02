@@ -4,19 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-
-const store = configureStore({
-  reducer: {},
-});
-
-let items = createSlice({
-  name: "items",
-  initialState: null,
-});
+import store from "./redux/config";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>

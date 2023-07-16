@@ -1,8 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
-export default function Main({ items }) {
+export default function Main() {
+  const items = useSelector((state) => state.products);
+
   return (
     <>
       {/* main */}
