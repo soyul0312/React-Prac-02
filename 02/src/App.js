@@ -18,35 +18,21 @@ function App() {
       id: nanoid(),
       name: "멋진 바지",
       price: 20000,
-      options: [
-        { value: 1, name: "28" },
-        { value: 2, name: "30" },
-        { value: 3, name: "32" },
-      ],
+      options: ["28", "30", "32"],
       likes: 100,
     },
     {
       id: nanoid(),
       name: "멋진 셔츠",
       price: 10000,
-      options: [
-        { key: 1, name: "small" },
-        { key: 2, name: "medium" },
-        { key: 3, name: "large" },
-      ],
+      options: ["small", "medium", "large"],
       likes: 200,
     },
     {
       id: nanoid(),
       name: "멋진 신발",
       price: 30000,
-      options: [
-        { key: 1, name: "230" },
-        { key: 2, name: "240" },
-        { key: 3, name: "250" },
-        { key: 4, name: "260" },
-        { key: 5, name: "270" },
-      ],
+      options: ["230", "240", "250", "260", "270"],
       likes: 300,
     },
   ];
