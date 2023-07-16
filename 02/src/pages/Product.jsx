@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 export default function Product({ items }) {
-  // useParams를 이용해 url의 id를 가져온다.
+  // useParams를 이용해 url의 id를 가져온다. 이때 id는 문자열임.
   const { id } = useParams();
   // items의 id값 === 현재 URL id값이 일치하는 상품을 찾아낸다.
   const product = items.find((item) => item.id === id);
   // product 객체에서 각각의 정보들을 추출해서 변수로 할당한다 --> 구조분해할당
-  const { name, price, option, likes } = product;
+  const { name, price, options, likes } = product;
   // 선택된 옵션 화면에 렌더링하기 위해 useState 사용한다.
-  const [selectedOption, setSelectedOtion] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
   return (
     <>
       <div>
@@ -41,19 +41,19 @@ export default function Product({ items }) {
                 width: "100px",
               }}
               onChange={(e) => {
-                setSelectedOtion(e.target.value);
+                setSelectedOption(e.target.value);
               }}
             >
-              <option>선택하세용!</option>
-              {option.map((option) => {
+              <option value={""}>선택하세용!</option>
+              {options.map((option) => {
                 return (
-                  <option key={option.value} value={option.name}>
+                  <option key={option.key} value={option.name}>
                     {option.name}
                   </option>
                 );
               })}
             </select>
-            <div>구매옵션:{selectedOption}</div>
+            <div>{selectedOption}</div>
           </div>
         </div>
       </div>
