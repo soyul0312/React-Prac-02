@@ -40,7 +40,10 @@ export default function Main({ items }) {
           >
             {items.map((item) => (
               <Card key={item.id}>
-                <div>{item.name}</div>
+                <div>
+                  {item.name}
+                  {console.log(item.id)}
+                </div>
                 <div>{item.price}</div>
               </Card>
             ))}
